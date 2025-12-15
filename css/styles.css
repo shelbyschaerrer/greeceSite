@@ -890,13 +890,13 @@ nav ul a {
   background: white;
 }
 .case-slider .slide1 {
-  background-image: url("images/articlePics/art_of_stone_carving/2025-07-31-05_stonework.jpg");
+  background-image: url("https://raw.githubusercontent.com/shelbyschaerrer/greeceSite/refs/heads/main/images/articlePics/art_of_stone_carving/2025-07-31-05_stonework.jpg");
 }
 .case-slider .slide2 {
-  background-image: url("images/articlePics/blossoming_stones/2025-07-31_03_students.jpg");
+  background-image: url("https://raw.githubusercontent.com/shelbyschaerrer/greeceSite/refs/heads/main/images/articlePics/blossoming_stones/2025-07-31_03_students.jpg");
 }
 .case-slider .slide3 {
-  background-image: url("images/video_Thumbnails/workshop_vassillis_ganiatsas.jpg");
+  background-image: url("https://raw.githubusercontent.com/shelbyschaerrer/greeceSite/refs/heads/main/images/video_Thumbnails/workshop_vassillis_ganiatsas.jpg");
 }
 
 .catLink {
