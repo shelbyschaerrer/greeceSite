@@ -1,0 +1,1001 @@
+nav { 
+    position: fixed; /* stays at top */
+    top: 3rem;
+    left: 0; 
+    right: 0;
+    margin: 0 10rem;
+    padding: .3rem;
+    border-radius: 24px;
+    border: solid rgb(211, 211, 211) .5px;
+    height: 62px;
+    
+
+  /* Frosted glass effect */
+  background: rgba(255, 255, 255, 0.5); /* translucent background */
+  backdrop-filter: blur(10px);           /* blur whatever is behind */
+  -webkit-backdrop-filter: blur(10px);   /* Safari support */
+
+  color: white;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  z-index: 20;
+  header {
+    a {
+        display: flex;
+        align-items: center;
+        gap: 8px;
+        margin: 0;
+        padding-left: 1rem;
+        h1  {
+            font-size: 1.2rem;
+            max-width: none;
+        }
+    }
+}
+   ul {
+        list-style-type: none;
+        padding: 0;
+        margin: 0;
+        display: flex;
+        width: 20%;
+        li {
+            flex: 1;
+        }
+    }
+    li.active {
+        font-weight: 700;
+    }
+    a {
+        display: block;
+        padding: .5rem;
+        text-align: center;
+        text-decoration: none;
+        color: #000;
+        font-size: .75rem;
+        &:hover {
+            color: #384B30;
+        }
+    }
+}
+
+.mobileHero {
+    display: none;
+}
+
+
+//homepage hero image
+.home-hero-slider {
+    display: block;
+    position: relative;
+    width: 100%;
+    height: 716px; 
+    overflow: hidden;
+    
+  
+    .home-hero-slide {
+      position: absolute;
+      inset: 0;
+      background-size: cover;
+      background-position: center;
+      opacity: 0;
+      transition: opacity 1s ease-in-out;
+      z-index: 0;
+       margin: 1.5rem 6rem 0 6rem;
+       border-radius: 24px;
+  
+      &.active {
+        opacity: 1;
+        z-index: 1;
+      }
+
+      &::after {
+        content: "";
+        position: absolute;
+        inset: 0;
+        background: linear-gradient(
+          to top,
+          rgba(0, 0, 0, 0.733) 0%,   /* darkest at bottom */
+          rgba(0, 0, 0, 0.3) 40%,  /* fades upward */
+          rgba(0, 0, 0, 0) 100%    /* transparent top */
+        );
+        z-index: 2; /* sits above the background image */
+        border-radius: inherit;
+      }
+  
+      .overlay {
+        position: absolute;
+        bottom: 6rem;
+        left: 6rem;
+        text-align: left;
+        color: white;
+        z-index: 10;
+        padding: 0 1rem;
+  
+  
+        .home-hero-title {
+          font-size: 96px;
+          margin: 0.5rem 0 0 0;
+          font-weight: 500;
+        }
+  
+        .home-hero-subtitle {
+          font-size: 64px;
+          font-weight: 400;
+          margin-top: 0;
+        }
+  
+
+      }
+    }
+  
+    /* Dots - NOT SHOWING, but if I delete them stuff breaks for some reason*/
+    .home-dots {
+        display: none;  
+        position: absolute;
+         bottom: 20px;
+         width: 100%;
+         text-align: center;
+         z-index: 10;
+  
+      .home-dot {
+        display: inline-block;
+        width: 12px;
+        height: 12px;
+        margin: 0 5px;
+        background: rgba(255,255,255,0.6);
+        border-radius: 50%;
+        cursor: pointer;
+  
+        &.active {
+          background: white;
+        }
+      }
+    }
+  
+    // images
+    .slide1 { background-image: url('/images/homepageHero/hero_acropolisGreece.jpg'); }
+    .slide2 { background-image: url('/images/homepageHero/hero_pentafolos.jpg'); }
+    .slide3 { background-image: url('/images/homepageHero/hero_monastaryCrete.jpg'); }
+  }
+//end of hero  
+
+
+
+
+
+//regular hero
+.heroRegular {
+    margin: 1.5rem 6rem;
+    .pageTitle {
+        left: 15%; 
+        top: 23%;
+        font-size: 3rem;
+    }
+}
+
+
+   
+//homepage content
+//mission section
+.mission {
+    margin: 3rem 6rem;
+    .contentContainer {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+    }
+}
+
+
+
+//work
+.work {
+    margin: 3rem 6rem;
+
+    .sectionTitle {
+        .sectionNumber {
+            font-size: 24px;
+        }
+        .title {
+            font-size: 14px;
+        }
+    }
+
+    .contentContainer {
+        display: flex;
+        align-items: flex-end;
+        justify-content: space-between;
+    }
+
+    .homepageCaseStudyCards {
+        display: flex;
+        flex-direction: row;
+        width: 100%;
+        gap: 2rem;
+        margin-top: 3rem;
+
+        .individualCaseStudyCard {
+            height: 465px;
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            flex: 1;
+            transition: width 0.3s ease, flex-grow 0.3s ease;
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-end;
+            border-radius: 24px;
+            position: relative;   // required for overlay
+            overflow: hidden;     // keeps overlay inside rounded corners
+
+            // ░░░ DARK OVERLAY ░░░
+            &::before {
+                content: "";
+                position: absolute;
+                inset: 0;
+                background: rgba(0, 0, 0, 0.373); // adjust opacity here
+                z-index: 1; 
+                pointer-events: none;
+            }
+
+            .cardContent {
+                position: relative;
+                z-index: 2; // above overlay
+                padding: 2rem;
+                color: white;
+                h3 {
+                    font-weight: 500;
+                    font-size: 24px;
+                }
+                p {
+                    font-size: 14px;
+                }
+
+                a {
+                    background-color: white;
+                    border: solid black 1px;
+                    border-radius: 24px;
+                    padding: 8px 12px;
+                    width: 100%;
+                    height: 48px;
+                    display: flex;
+                    justify-content: space-between;
+                    align-items: center;
+                    color: black;
+                    font-size: 16px;
+                    img {
+                        width: 22px;
+                    }
+
+                    &:hover {
+                        background-color: #698f58;
+                        cursor: pointer;
+                    }
+                }
+            }
+        }
+
+        .individualCaseStudyCard.wide {
+            flex: 2;
+        }
+    }
+}
+
+
+//partner logos
+.partners {
+    margin: 3rem 6rem;
+    flex-direction: row;
+}
+
+//latest section
+.latest {
+    margin: 3rem 6rem;
+    .contentContainer {
+        display: flex;
+        .content1 {
+            width: 60%;
+            
+            .articleLink {
+                margin-right: 4rem;
+                .year {
+                    font-size: 16px;
+                }
+                .description {
+                    max-width: 500px;
+                    font-size: 20px;
+                    width: 100%;
+                }
+            }
+        }
+        .content2 {
+            width: 40%;
+            margin-bottom: 0;
+        }
+    }
+    
+}
+
+//about page
+//team section
+.overview {
+    margin: 4rem 6rem;
+    .sectionTitle {
+        .sectionNumber{
+            font-size: 24px;
+        }
+        .title {
+            font-size: 14px;
+        }
+    }
+    .contentContainer {
+        display: flex;
+        align-items: flex-start;
+        justify-content: space-between;
+        .content1 {
+            font-size: 32px;
+            font-weight: 100;
+            max-width: 428px;
+            span {
+                    color: #698f58;
+                }
+        }
+        .content2 {
+            max-width: 700px;
+            p {
+                font-size: 16px;
+            }
+        }
+    }
+    .fullWidthImg {
+        margin: 4rem 0rem;
+        img {
+            width: 100%;
+        }
+    }
+}
+
+//goal section
+.goal {
+    margin: 4rem 6rem;
+    .sectionTitle {
+        .sectionNumber{
+            font-size: 24px;
+        }
+        .title {
+            font-size: 14px;
+        }
+    }
+    .contentContainer {
+        display: flex;
+        align-items: flex-start;
+        justify-content: space-between;
+        margin-top: 2rem;
+        .content1 {
+            display: flex;
+            flex-direction: column;
+            max-width: 500px;
+            .goalStatement {
+                font-size: 24px;
+                span {
+                    color:#698f58;
+                }
+            }
+            .closeQuote {
+                transform: scaleX(-1);
+                margin-left: auto;
+            }
+        }
+        .content2 {
+            color: black; //PLACEHOLDER
+        }
+    }
+}
+
+//our team - this one is structured differently than the others
+.team {
+    margin: 4rem 6rem;
+    display: flex;
+    justify-content: space-between;
+    .content1 { 
+        width: 590px;
+        height: 359px;
+        background-color: #698f5881;
+        padding: 4rem;
+        border-radius: 24px;
+        display: flex;
+        align-items: center;
+        img {
+            width: 100%;
+        }
+    }
+    .contentContainer {
+        max-width: 616px;
+        .sectionTitle {
+            .sectionNumber{
+                font-size: 24px;
+            }
+            .title {
+                font-size: 14px;
+            }
+        }
+        .content2 {
+            .subTitle {
+                color: black; //PLACEHOLDER
+            }
+            p {
+                color: black; //PLACEHOLDER
+            }
+        }
+    }
+}
+
+//project accordians
+.accordion {
+    border: 1px solid #e6e4e2;
+    border-radius: 8px;
+    margin: 2rem 6rem;
+    max-width: 1322px;
+    overflow: hidden;
+    background-color: #f9f8f7;
+  
+    .accordion-header {
+      width: 100%;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 1rem 2rem;
+      font-weight: 600;
+      font-size: 1.1rem;
+      max-height: 98px;
+      border: none;
+      cursor: pointer;
+      background-color: #f9f8f7; //if this isn't here, it gets overriden. I'm not sure where.
+  
+      .arrow {
+        transition: transform 0.3s ease;
+      }
+  
+      &.active .arrow {
+        transform: rotate(180deg);
+      }
+      .iconAndText {
+        display: flex;
+        align-items: center;
+        margin-top: .5rem;
+        .icon {
+            background-color: #698f58;
+            width: 48px;
+            height: 48px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 100px;
+        }
+        .text {
+            margin-left: 2rem;
+            text-align: left;
+            .projectTitle {
+                font-size: 24px;
+                margin: 0;
+            }
+            .participants {
+                font-size: 14px;
+                margin:  .5rem 0;
+                color: #2a2725;
+                font-weight: 400;
+            }
+        }
+      }
+    }
+  
+    .accordion-content {
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height 0.4s ease, padding 0.3s ease;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 1rem;
+      padding: 0 2rem;
+      background-color: #f9f8f7;
+  
+      .left-panel,
+      .right-panel {
+        flex: 1;
+      }
+
+      .left-panel {
+        max-width: 337px;
+        img {
+            border-radius: 24px;
+        }
+      }
+
+      .right-panel {
+        padding-bottom: 2rem;
+        .details {
+            .projectTitle {
+                font-size: 24px;
+            }
+            .projectDescription {
+                font-size: 14px; 
+            }
+        }
+        .projectInfo {
+            color: #726963;
+            background-color: #f1f0ef;
+            padding: 12px;
+            .dateSection {
+                display: flex;
+                justify-content: space-between;
+                margin-bottom: 1rem;
+                .dateAnswer {
+                    text-align: right;
+                }
+            }
+            .participantSection {
+                display: flex;
+                justify-content: space-between;
+                .participantAnswer {
+                    text-align: right;
+                    max-width: 450px;
+                }
+            }
+        }
+      }
+  
+      p {
+        margin: 1rem 0;
+      }
+    }
+  
+    &.open {
+      .accordion-content {
+        max-height: 600px; // do I need this?
+      }
+    }
+  }
+//end of accordions 
+
+//Case Studies Page
+//hero image
+.case-slider {
+    position: relative;
+    width: 100%;
+    height: 100vh; // full viewport height
+    overflow: hidden;
+  
+    .case-slide {
+      position: absolute;
+      inset: 0;
+      background-size: cover;
+      background-position: center;
+      opacity: 0;
+      transition: opacity 1s ease-in-out;
+      z-index: 0;
+  
+      &.active {
+        opacity: 1;
+        z-index: 1;
+      }
+
+      &::after {
+        content: "";
+        position: absolute;
+        inset: 0;
+        background: linear-gradient(
+          to top,
+          rgba(0, 0, 0, 0.733) 0%,   /* darkest at bottom */
+          rgba(0, 0, 0, 0.3) 40%,  /* fades upward */
+          rgba(0, 0, 0, 0) 100%    /* transparent top */
+        );
+        z-index: 2; /* sits above the background image */
+      }
+  
+      .overlay {
+        position: absolute;
+        bottom: 9rem;
+        left: 6rem;
+        //transform: translateX(-50%);
+        text-align: left;
+        color: white;
+        z-index: 10;
+        padding: 0 1rem;
+        max-width: 480px;
+
+       
+        .topics {
+          display: flex;
+          justify-content: left;
+          gap: 0.5rem;
+          margin-bottom: 0.5rem;
+  
+          span {
+            background: rgba(0, 0, 0, 0.2); /* translucent background */
+            backdrop-filter: blur(8px);            /* frosted glass effect */
+            -webkit-backdrop-filter: blur(8px);    /* Safari support */
+            padding: 8px;
+            gap: 12px;
+            border-radius: 16px;
+            font-size: 0.875rem;
+            color: white; 
+            border: 1px solid rgba(255, 255, 255, 0.3); 
+            display: flex;
+            align-items: center;
+            flex-wrap: wrap;
+            min-width: fit-content;
+          }
+        }
+  
+        .case-title {
+          font-size: 2rem;
+          margin: 0.5rem 0 1rem 0;
+          font-weight: 500;
+        }
+  
+        .case-summary {
+          font-size: 1rem;
+          max-width: 600px;
+          font-weight: 400;
+          margin-top: 0;
+        }
+  
+        .case-button {
+          display: inline-block;
+          
+        }
+      }
+    }
+  
+    /* Dots */
+    .case-dots {
+      position: absolute;
+      bottom: 20px;
+      width: 100%;
+      text-align: center;
+      z-index: 10;
+  
+      .case-dot {
+        display: inline-block;
+        width: 12px;
+        height: 12px;
+        margin: 0 5px;
+        background: rgba(255,255,255,0.6);
+        border-radius: 50%;
+        cursor: pointer;
+  
+        &.active {
+          background: white;
+        }
+      }
+    }
+  
+    // images
+    .slide1 { background-image: url('/images/articlePics/art_of_stone_carving/2025-07-31-05_stonework.jpg'); }
+    .slide2 { background-image: url('/images/articlePics/blossoming_stones/2025-07-31_03_students.jpg'); }
+    .slide3 { background-image: url('/images/video_Thumbnails/workshop_vassillis_ganiatsas.jpg'); }
+  }
+//end of hero (case studies) 
+
+.hidden-cat {
+  font-size: 20px;      /* nice and small */
+  cursor: pointer;
+  opacity: 0.6;         /* subtle so it's truly “hidden” */
+  transition: transform 0.2s ease, filter 0.2s ease;
+  margin-left: 1rem;
+  width: 35px;
+}
+
+.hidden-cat:hover {
+  opacity: 1;
+  //transform: scale(1.1);
+}
+
+.hidden-cat.active {
+  filter: hue-rotate(400deg);
+}
+
+
+//lagkadia information section
+.lagkadia {
+    display: flex;
+    margin: 3rem 6rem;
+    justify-content: space-evenly;
+    align-items: center;
+    .text {
+        .title {
+            line-height: 0;
+            .title1 {
+                font-size: 32px;
+                margin-bottom: 0;
+        }
+            .title2 {
+                font-size: 64px;
+        }
+        }
+        .body {
+            line-height: 1.7;
+        }
+        .citation {
+            font-size: 12px;
+            color: #384B30;
+        }
+    }
+    img {
+        width: 60%;
+       border-radius: 24px;
+       margin-left: 3rem;
+    }
+}
+
+.caseStudiesSectionTitle {
+    color: black;
+    margin-left: 6rem;
+    margin-top: 6rem;
+    font-size: 28px;
+    font-weight: 700;
+}
+
+//case studies cards
+
+    .caseStudyCards {
+        margin: 6rem;
+        margin-top: 3rem;
+        .card {
+            display: flex;
+            gap: 16px;
+            align-items: center;
+            margin-bottom: 2rem;
+            background-color: #F9F8F7;
+            padding: 16px;
+            border-radius: 24px;
+            .textContent {
+                .topics {
+                    span {
+                        background-color: white;
+                        border: solid 1px #F1F0EF;
+                        padding: 4px 8px;
+                        margin-right: 4px;
+                        border-radius: 8px;
+                    }
+                }
+                .cardText {
+                    p {
+                        line-height: 1.5;
+                    }
+                }
+            }
+            img {
+                width: 35%;
+                border-radius: 12px;
+            }
+            .btnContainer {
+                display: flex;
+                justify-content: flex-end;
+                
+            }
+        }
+    }
+
+//Video cards (case studies page)
+.allVideoCards {
+    display: flex;
+    margin-left: 6rem;
+    margin-right: 6rem;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+
+    .individualVideoCard{
+        width: 45%;
+            h3 {
+                color:#384B30;
+                font-size: 24px;
+                font-weight: 500;
+                min-height: 50px;
+            }
+            img {
+                width: 100%;
+                border-radius: 12px;
+         }
+            p {
+                font-size: 16px;
+                height: 170px;
+                line-height: 1.5;
+            }
+    }
+}
+
+//bio cards
+.bioCards {
+    margin: 3rem 6rem;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    .individualBioCard {
+        background-color: #b3cca91a;
+        width: 400px;
+        margin-bottom: 3rem;
+        border-radius: 24px;
+        padding: 8px 16px;
+        h3 {
+            font-weight: 500;
+            font-size: 24px;
+        }
+        p {
+            line-height: 1.7;
+        }
+    }
+}
+
+//Article pages (individual case studies such as blossomingStones.html)
+.heroArticle {
+   // margin: 1.5rem 6rem;
+    height: 50vh;
+    overflow: hidden;
+   // border-radius: 24px;
+    img {
+       // max-width: 1324px;
+      //  border-radius: 24px;
+        width: 100%;
+        height: auto;
+        display: block;
+    }
+    .pageTitle {
+        color: white;
+        position: absolute;
+        left: 15%; 
+        top: 50%;
+        z-index: 20;
+        font-weight: 400;
+        font-size: 60px;
+    }
+}
+
+
+.caseStudyTitle {
+    text-align: center;
+    font-size: 3rem;
+}
+
+
+.caseStudy {
+    width: 40%;
+    margin: 2rem auto 4rem auto;
+    .narrative {
+        p {
+            line-height: 1.7;
+        }
+        img {
+            width: 100%;
+            margin-top: 2rem;
+            margin-bottom: 2rem;
+        }
+    }
+}
+
+.author {
+    text-align: center;
+    color:#726963;
+    font-size: 18px;
+    margin-top: 2rem;
+}
+
+.references {
+    width: 40%;
+    margin: 0 auto 4rem auto;
+    .citation {
+        padding-left: 2em;
+        text-indent: -2em;
+        font-size: 12px;
+        color:#384B30;
+    }
+}
+
+.topJump {
+    margin: 0 auto 2rem auto;
+    text-align: center;
+    a {
+        color: black;
+        text-decoration: none;
+        transition: transform 0.2s ease;
+        display: inline-block;  /* <-- This is the missing piece */
+        padding: 2rem;
+
+        &:hover {
+            transform: translateY(-8px);
+            color: #384B30;
+        }
+    }
+}
+
+// begin the footer
+
+footer {
+    color: white;
+    background-color: #384B30;
+    margin: 0 6rem;
+    border-radius: 24px;
+    padding: 24px;
+
+    .topContent {
+        display: flex;
+        align-items: flex-end;
+        padding-bottom: 1rem;
+        border-bottom: solid 1px white;
+        .cta {
+            width: 50%;
+            p {
+                font-size: 64px;
+                margin: 0;
+            }
+            a {
+                text-decoration: none;
+                    button { 
+                        display: flex;
+                        align-items: center;
+                        font-size: 16px;
+                        margin: 0;
+                        padding: 8px 16px;
+                        border-radius: 50px;
+                        border: solid 1px #C0B9B4;
+                        img {
+                            width: 22px;
+                            transform: rotate(-45deg);
+                    }
+            }
+            }
+        }
+        .contactInfo {
+            width: 50%;
+            text-align: right;
+            p {
+                margin: 0;
+                font-weight: 100;
+            }
+        }
+    }
+    .bottomContent {
+        display: flex;
+        justify-content: space-between;
+        color: white;
+        padding-top: 1rem;
+        .logoStuff {
+            header {
+                display: flex;
+                align-items: center;
+                h1 {
+                    font-size: 16px;
+                    padding-left: 1rem;
+                }
+                .whiteLogo {
+                    color: white;
+                }
+            }
+        }
+        .navLinks {
+            width: 40%;
+            ul {
+                display: flex;
+                justify-content: center;
+                list-style: none;
+                gap: 45px;
+                li {
+                    a {
+                        text-decoration: none;
+                        color: white;
+                        font-size: 14px;
+                        font-weight: 100;
+                    }
+                }
+            }
+        }
+        .copyright {
+            p {
+                font-weight: 100;
+                font-size: 14px;
+            }
+        }
+    }
+}
