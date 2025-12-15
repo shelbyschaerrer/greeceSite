@@ -1301,13 +1301,13 @@ footer .bottomContent .copyright p {
     background: white;
   }
   .home-hero-slider .slide1 {
-    background-image: url("images/homepageHero/hero_acropolisGreece.jpg");
+    background-image: url("../images/homepageHero/hero_acropolisGreece.jpg");
   }
   .home-hero-slider .slide2 {
-    background-image: url("images/homepageHero/hero_pentafolos.jpg");
+    background-image: url("../images/homepageHero/hero_pentafolos.jpg");
   }
   .home-hero-slider .slide3 {
-    background-image: url("images/homepageHero/hero_monastaryCrete.jpg");
+    background-image: url("../images/homepageHero/hero_monastaryCrete.jpg");
   }
   .heroRegular {
     margin: 1.5rem 6rem;
@@ -1736,13 +1736,13 @@ footer .bottomContent .copyright p {
     background: white;
   }
   .case-slider .slide1 {
-    background-image: url("images/articlePics/art_of_stone_carving/2025-07-31-05_stonework.jpg");
+    background-image: url("https://raw.githubusercontent.com/shelbyschaerrer/greeceSite/refs/heads/main/images/articlePics/art_of_stone_carving/2025-07-31-05_stonework.jpg");
   }
   .case-slider .slide2 {
-    background-image: url("images/articlePics/blossoming_stones/2025-07-31_03_students.jpg");
+    background-image: url("https://raw.githubusercontent.com/shelbyschaerrer/greeceSite/refs/heads/main/images/articlePics/blossoming_stones/2025-07-31_03_students.jpg");
   }
   .case-slider .slide3 {
-    background-image: url("images/video_Thumbnails/workshop_vassillis_ganiatsas.jpg");
+    background-image: url("https://raw.githubusercontent.com/shelbyschaerrer/greeceSite/refs/heads/main/images/video_Thumbnails/workshop_vassillis_ganiatsas.jpg");
   }
   .hidden-cat {
     font-size: 20px; /* nice and small */
