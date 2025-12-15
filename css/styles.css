@@ -1301,13 +1301,13 @@ footer .bottomContent .copyright p {
     background: white;
   }
   .home-hero-slider .slide1 {
-    background-image: url("/images/homepageHero/hero_acropolisGreece.jpg");
+    background-image: url("images/homepageHero/hero_acropolisGreece.jpg");
   }
   .home-hero-slider .slide2 {
-    background-image: url("/images/homepageHero/hero_pentafolos.jpg");
+    background-image: url("images/homepageHero/hero_pentafolos.jpg");
   }
   .home-hero-slider .slide3 {
-    background-image: url("/images/homepageHero/hero_monastaryCrete.jpg");
+    background-image: url("images/homepageHero/hero_monastaryCrete.jpg");
   }
   .heroRegular {
     margin: 1.5rem 6rem;
